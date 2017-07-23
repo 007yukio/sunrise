@@ -1,0 +1,23 @@
+<%= form_for(@rumor, url: choose_new_or_edit) do |f| %>
+  <% if @rumor.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @rumor.errors.count%>件のエラーがあります。</h2>
+      
+          <ul>
+          <% @rumor.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <%end%>
+          </ul>
+        </div>
+  <% end %>
+  
+  <%= f.label :タイトル %>
+  <%= f.text_field :title,class:'form-control'%>
+  <br>
+  <%= f.label :つぶやき %>
+  <%= f.text_field :content,class:'form-control'%>
+  <br>
+  <%= f.submit'投稿するフォーム',class:'btn btn-primary btn-block' %>
+  <% end %>
+  
+  <!--<%= link_to "うわさ一覧画面にもどる",rumors_path %>-->

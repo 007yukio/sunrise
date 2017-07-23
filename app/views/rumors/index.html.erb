@@ -1,0 +1,16 @@
+<div class='container'>
+  <div class="wrappaer col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    
+    <h1>噂一覧</h1>
+      <%= link_to "うわさを書く",new_rumor_path, class: 'btn btn-default' %>
+      <% @rumors.each do |rumor| %>
+    <div class='row'>
+        <h4><strong><%=rumor.title%></strong></h4>
+        <p><%=rumor.content%></p>
+        <%= link_to "うわさを編集する",edit_rumor_path(rumor.id),class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to "ブログを削除する", rumor_path(rumor.id), method: :delete, data: { confirm: '本当に削除していいですか？'} ,class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+</div>
